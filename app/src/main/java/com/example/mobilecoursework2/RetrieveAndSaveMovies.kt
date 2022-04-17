@@ -20,7 +20,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 
-class GetAndSaveMovies : AppCompatActivity() {
+class RetrieveAndSaveMovies : AppCompatActivity() {
 
     private lateinit var moviesDao: MovieDao
 

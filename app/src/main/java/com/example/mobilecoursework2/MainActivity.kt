@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         searchForMovieBT.setOnClickListener {
-            val searchMovieIntent = Intent(this, GetAndSaveMovies::class.java)
+            val searchMovieIntent = Intent(this, RetrieveAndSaveMovies::class.java)
             startActivity(searchMovieIntent)
         }
 
