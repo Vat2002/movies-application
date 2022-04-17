@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MobileCoursework2</string>
+    <string name="add_to_db">Add to DB</string>
+    <string name="search_for_movies">Search for movies</string>
+    <string name="search_for_actors">Search for actors</string>
+    <string name="save_movie_to_database">Save movie to database</string>
+    <string name="retrieve_movie">Retrieve movie</string>
+    <string name="hint_movie">Enter Movie</string>
+    <string name="search">Search</string>
+    <string name="hint_actor">Enter Actor</string>
+    <string name="viewRetrievedMovie" />
+    <string name="enterMoviePT" />
+</resources>
