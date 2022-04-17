@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import com.example.mobilecoursework2.entities.Movie
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -20,18 +22,40 @@ import java.net.URL
 
 class SearchForMovies : AppCompatActivity() {
 
-   lateinit var getData : String
+    private lateinit var moviesDao: MovieDao
+
+    lateinit var getData : String
+
+    lateinit var movieTitle: String
+    lateinit var movieYear: String
+    lateinit var movieRated: String
+    lateinit var movieReleased: String
+    lateinit var movieRuntime: String
+    lateinit var movieGenre: String
+    lateinit var movieDirector: String
+    lateinit var movieWriter: String
+    lateinit var movieActor: String
+    lateinit var moviePlot: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.search_movies_activity)
 
+        val db = Room.databaseBuilder(this, MoviesDatabase::class.java, "Movies_Database").build()
+        moviesDao = db.movieDao()
+
         val retrieveMovieBT = findViewById<Button>(R.id.retrieveMovieBt)
+        val saveMovieToDBBT = findViewById<Button>(R.id.saveMovieBt)
         val getDataFromField = findViewById<TextView>(R.id.enterMoviePT)
+
+
+        saveMovieToDBBT.setOnClickListener {
+            saveDataToDB()
+        }
 
         retrieveMovieBT.setOnClickListener {
             getData = getDataFromField.text.toString()
-            Log.d("insert", "clicked button")
+            Log.d("insert", "retrieve button clicked")
             callAPI()
         }
     }
@@ -77,16 +101,6 @@ class SearchForMovies : AppCompatActivity() {
     private fun parseJSON(stb: java.lang.StringBuilder): String {
 
         Log.d("insert", "inside parser json")
-        lateinit var movieTitle: String
-        lateinit var movieYear: String
-        lateinit var movieRated: String
-        lateinit var movieReleased: String
-        lateinit var movieRuntime: String
-        lateinit var movieGenre: String
-        lateinit var movieDirector: String
-        lateinit var movieWriter: String
-        lateinit var movieActor: String
-        lateinit var moviePlot: String
 
         // extract the actual data
         val json = JSONObject(stb.toString())
@@ -105,6 +119,24 @@ class SearchForMovies : AppCompatActivity() {
         return ("Title:" + movieTitle + "\n" + "Year:" + movieYear + "\n" + "Rated:" + movieRated + "\n" + "Released:" + movieReleased + "\n" + "Runtime:" + movieRuntime +
                 "\n" + "Genre:" + movieGenre + "\n" + "Director:" + movieDirector + "\n" + "Writer:" + movieWriter + "\n" + "Actor:" + movieActor + "\n" +
                 "Plot:" + moviePlot)
+    }
 
+    private fun saveDataToDB(){
+        //enter code here
+        runBlocking {
+            launch {
+                val movies = listOf(
+                    Movie(movieTitle,movieYear,movieRated,movieReleased,movieRuntime,movieGenre,movieDirector,movieWriter,movieActor,moviePlot)
+                )
+                for (movie in movies) {
+                    moviesDao.insertMovie(movie)
+                }
+                val movie: List<Movie> = moviesDao.getMovie()
+
+                for (film in movie) {
+                    Log.d("insert", "Movies:$film")
+                }
+            }
+        }
     }
 }
