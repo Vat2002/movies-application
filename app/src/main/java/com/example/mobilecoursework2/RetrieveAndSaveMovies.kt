@@ -39,7 +39,7 @@ class RetrieveAndSaveMovies : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_movies_activity)
+        setContentView(R.layout.retrieve_save_movies_activity)
 
         val db = Room.databaseBuilder(this, MoviesDatabase::class.java, "Movies_Database").build()
         moviesDao = db.movieDao()
