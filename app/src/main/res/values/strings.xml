@@ -10,4 +10,5 @@
     <string name="hint_actor">Enter Actor</string>
     <string name="viewRetrievedMovie" />
     <string name="enterMoviePT" />
+    <string name="searchActorPT" />
 </resources>
