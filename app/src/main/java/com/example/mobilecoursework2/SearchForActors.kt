@@ -41,7 +41,7 @@ class SearchForActors : AppCompatActivity(){
                 /*if (actorInputData == moviesDao.getAllActor().toString()){
                     viewSearchedActor.text = actorInputData
                 }*/
-                viewSearchedActor.text = moviesDao.getAllActor().toString()
+                viewSearchedActor.text = moviesDao.getActor().toString()
             }
         }
     }
