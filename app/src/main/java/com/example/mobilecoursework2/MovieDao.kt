@@ -20,6 +20,9 @@ interface MovieDao {
     @Query("Select * from movie")
     suspend fun getMovie(): List<Movie>
 
+    @Query("Select * from actor")
+    suspend fun getActor() : List<Actor>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCrossRef(actorCrossRef : MovieActorCrossReference)
 
