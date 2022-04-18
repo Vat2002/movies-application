@@ -106,25 +106,33 @@ class RetrieveAndSaveMovies : AppCompatActivity() {
 
         Log.d("insert", "inside parser json")
 
+        val returnMsg : String
+
         // extract the actual data
         val json = JSONObject(stb.toString())
 
-        movieTitle = json["Title"].toString()
-        movieYear = json["Year"].toString()
-        movieRated = json["Rated"].toString()
-        movieReleased = json["Released"].toString()
-        movieRuntime = json["Runtime"].toString()
-        movieGenre = json["Genre"].toString()
-        movieDirector = json["Director"].toString()
-        movieWriter = json["Writer"].toString()
-        movieActor = json["Actors"].toString()
-        moviePlot = json["Plot"].toString()
+        if(json.has("Error")){
+            returnMsg = "-------ERROR-------"
+        }
+        else{
+            movieTitle = json["Title"].toString()
+            movieYear = json["Year"].toString()
+            movieRated = json["Rated"].toString()
+            movieReleased = json["Released"].toString()
+            movieRuntime = json["Runtime"].toString()
+            movieGenre = json["Genre"].toString()
+            movieDirector = json["Director"].toString()
+            movieWriter = json["Writer"].toString()
+            movieActor = json["Actors"].toString()
+            moviePlot = json["Plot"].toString()
 
-        return ("Title:" + movieTitle + "\n" + "Year:" + movieYear + "\n" + "Rated:" + movieRated + "\n" + "Released:" + movieReleased + "\n" + "Runtime:" + movieRuntime +
-                "\n" + "Genre:" + movieGenre + "\n" + "Director:" + movieDirector + "\n" + "Writer:" + movieWriter + "\n" + "Actor:" + movieActor + "\n" +
-                "Plot:" + moviePlot)
+            returnMsg = ("Title:" + movieTitle + "\n" + "Year:" + movieYear + "\n" + "Rated:" + movieRated + "\n" + "Released:" + movieReleased + "\n" + "Runtime:" + movieRuntime +
+                    "\n" + "Genre:" + movieGenre + "\n" + "Director:" + movieDirector + "\n" + "Writer:" + movieWriter + "\n" + "Actor:" + movieActor + "\n" +
+                    "Plot:" + moviePlot)
+        }
+        return returnMsg
     }
-  
+
     private fun saveDataToDB(){
         //enter code here
         runBlocking {
