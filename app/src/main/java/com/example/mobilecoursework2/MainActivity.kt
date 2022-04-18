@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val addMoviesToDB = findViewById<Button>(R.id.addToDBBt)
         val searchForMovieBT = findViewById<Button>(R.id.searchMoviesBt)
         val searchActorsBT = findViewById<Button>(R.id.searchActorsBt)
+        val searchMovieStringBT = findViewById<Button>(R.id.searchByStringbt)
 
         addMoviesToDB.setOnClickListener {
             Toast.makeText(applicationContext,"Added movies database", Toast.LENGTH_SHORT).show()
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         searchActorsBT.setOnClickListener {
             val searchActorsIntent = Intent(this, SearchForActors::class.java)
             startActivity(searchActorsIntent)
+        }
+
+        searchMovieStringBT.setOnClickListener {
+            val searchMovieStringIntent = Intent(this, SearchMovieByString::class.java)
+            startActivity(searchMovieStringIntent)
         }
 
     }

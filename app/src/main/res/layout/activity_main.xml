@@ -9,9 +9,9 @@
     <Button
         android:id="@+id/addToDBBt"
         android:layout_width="208dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="218dp"
-        android:layout_marginBottom="49dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginBottom="44dp"
         android:text="@string/add_to_db"
         app:layout_constraintBottom_toTopOf="@+id/searchMoviesBt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +21,8 @@
     <Button
         android:id="@+id/searchMoviesBt"
         android:layout_width="208dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="54dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="44dp"
         android:text="@string/search_for_movies"
         app:layout_constraintBottom_toTopOf="@+id/searchActorsBt"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,22 @@
     <Button
         android:id="@+id/searchActorsBt"
         android:layout_width="208dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="248dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/search_for_actors"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/searchByStringbt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchMoviesBt" />
+
+    <Button
+        android:id="@+id/searchByStringbt"
+        android:layout_width="208dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="155dp"
+        android:text="@string/search_movie_by_string"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchActorsBt" />
 </androidx.constraintlayout.widget.ConstraintLayout>

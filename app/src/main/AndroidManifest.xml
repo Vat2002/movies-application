@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".RetrieveAndSaveMovies" />
         <activity android:name=".SearchForActors"/>
+        <activity android:name=".SearchMovieByString" />
     </application>
 
 </manifest>

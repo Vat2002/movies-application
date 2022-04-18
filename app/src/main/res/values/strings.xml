@@ -11,4 +11,5 @@
     <string name="viewRetrievedMovie" />
     <string name="enterMoviePT" />
     <string name="searchActorPT" />
+    <string name="search_movie_by_string">Search movie by string</string>
 </resources>
