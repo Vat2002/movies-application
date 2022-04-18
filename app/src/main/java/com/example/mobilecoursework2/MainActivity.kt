@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import androidx.room.Room
 import com.example.mobilecoursework2.entities.Actor
 import com.example.mobilecoursework2.entities.Movie
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val searchActorsBT = findViewById<Button>(R.id.searchActorsBt)
 
         addMoviesToDB.setOnClickListener {
+            Toast.makeText(applicationContext,"Added movies database", Toast.LENGTH_SHORT).show()
             enterData()
         }
 
