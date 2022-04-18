@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/searchActorInActBt"
+        android:layout_width="277dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/search"
+        app:layout_constraintBottom_toTopOf="@+id/viewSearchedActors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchActorPT" />
+
+    <EditText
+        android:id="@+id/searchActorPT"
+        android:layout_width="324dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/searchActorPT"
+        app:layout_constraintBottom_toTopOf="@+id/searchActorInActBt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/viewSearchedActors"
+        android:layout_width="497dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchActorInActBt" />
+</androidx.constraintlayout.widget.ConstraintLayout>

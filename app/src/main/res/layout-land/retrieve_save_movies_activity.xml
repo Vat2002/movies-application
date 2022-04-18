@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/saveMovieBt"
+        android:layout_width="316dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="11dp"
+        android:text="@string/save_movie_to_database"
+        app:layout_constraintBottom_toTopOf="@+id/viewRetrievedMovie"
+        app:layout_constraintStart_toStartOf="@+id/enterMoviePT"
+        app:layout_constraintTop_toBottomOf="@+id/retrieveMovieBt" />
+
+    <Button
+        android:id="@+id/retrieveMovieBt"
+        android:layout_width="228dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="22dp"
+        android:text="@string/retrieve_movie"
+        app:layout_constraintBottom_toTopOf="@+id/saveMovieBt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/enterMoviePT"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/viewRetrievedMovie"
+        android:layout_width="659dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/viewRetrievedMovie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/saveMovieBt"
+        app:layout_constraintStart_toEndOf="@+id/saveMovieBt"
+        app:layout_constraintTop_toBottomOf="@+id/saveMovieBt" />
+
+    <EditText
+        android:id="@+id/enterMoviePT"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="15dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/enterMoviePT"
+        app:layout_constraintBottom_toTopOf="@+id/saveMovieBt"
+        app:layout_constraintEnd_toStartOf="@+id/retrieveMovieBt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/retrieveMovieBt"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
