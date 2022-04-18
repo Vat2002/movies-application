@@ -1,11 +1,9 @@
 package com.example.mobilecoursework2
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.mobilecoursework2.entities.Actor
 import com.example.mobilecoursework2.entities.Movie
+import com.example.mobilecoursework2.entities.relations.ActorsWithMovies
 import com.example.mobilecoursework2.entities.relations.MovieActorCrossReference
 
 @Dao
@@ -23,10 +21,11 @@ interface MovieDao {
     @Query("Select * from actor")
     suspend fun getActor() : List<Actor>
 
+    @Transaction
+    @Query("Select * from actor Where actorName Like '%' || :query || '%'")
+    suspend fun getActorsWithMovies(query: String) : List<ActorsWithMovies>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCrossRef(actorCrossRef : MovieActorCrossReference)
 
-    /*@Transaction
-    @Query("SELECT * FROM Movie WHERE movieTitle = :movieTitle")
-    suspend fun getMoviesWithActors(movieTitle : String) : List<MoviesWithActors>*/
 }
