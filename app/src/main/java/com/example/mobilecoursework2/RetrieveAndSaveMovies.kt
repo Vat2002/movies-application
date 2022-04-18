@@ -7,7 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.example.mobilecoursework2.entities.Actor
 import com.example.mobilecoursework2.entities.Movie
+import com.example.mobilecoursework2.entities.relations.MovieActorCrossReference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -120,7 +122,7 @@ class RetrieveAndSaveMovies : AppCompatActivity() {
                 "\n" + "Genre:" + movieGenre + "\n" + "Director:" + movieDirector + "\n" + "Writer:" + movieWriter + "\n" + "Actor:" + movieActor + "\n" +
                 "Plot:" + moviePlot)
     }
-
+  
     private fun saveDataToDB(){
         //enter code here
         runBlocking {
@@ -128,9 +130,27 @@ class RetrieveAndSaveMovies : AppCompatActivity() {
                 val movies = listOf(
                     Movie(movieTitle,movieYear,movieRated,movieReleased,movieRuntime,movieGenre,movieDirector,movieWriter,movieActor,moviePlot)
                 )
+
+                val actors = listOf(
+                    Actor(movieActor)
+                )
+
+                val movieActorRelationships = listOf(
+                    MovieActorCrossReference(movieTitle,movieActor)
+                )
+
                 for (movie in movies) {
                     moviesDao.insertMovie(movie)
                 }
+
+                for (actor in actors) {
+                    moviesDao.insertActor(actor)
+                }
+
+                for (movieActorCrossReference in movieActorRelationships) {
+                    moviesDao.insertCrossRef(movieActorCrossReference)
+                }
+
                 val movie: List<Movie> = moviesDao.getMovie()
 
                 for (film in movie) {
