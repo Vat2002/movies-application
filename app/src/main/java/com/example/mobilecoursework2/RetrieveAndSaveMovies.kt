@@ -5,6 +5,7 @@ import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.mobilecoursework2.entities.Actor
@@ -52,6 +53,7 @@ class RetrieveAndSaveMovies : AppCompatActivity() {
 
 
         saveMovieToDBBT.setOnClickListener {
+            Toast.makeText(applicationContext,"Saved to movies database",Toast.LENGTH_SHORT).show()
             saveDataToDB()
         }
 
